@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit Note{% endblock %}
+
+{% block content %}
+
+
+        <div class="all_notes_box">
+            <h1>Edit Note</h1>
+            <h2 class="title">{{ note.title }}</h2>
+
+                <form method="post" action="/edit">
+                    <div>
+                        <textarea class="edit_note" name="edited_note" id="edited_note">{{ note.data }}</textarea>
+                    </div>
+
+                    <input type="hidden" name="edit_note_id" value="{{ note.id }}">
+                    <input type="hidden" name="edited_note">
+                    <button type="submit">Edit Note</button>
+                </form>
+
+                <form method="post" action="/delete">
+                    <input type="hidden" name="id" id=id value="{{ note.id }}">
+                    <button type="submit">Delete Note</button>
+                </form>
+
+        </div>
+
+{% endblock %}
