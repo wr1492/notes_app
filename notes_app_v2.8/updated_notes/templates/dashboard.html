@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="dashboard_row1">
+        <h1>Search Wikipedia</h1><br />
+
+        <form method="post" name="form1">
+            <input type="search" name="wiki_search" id="wiki_search">
+            <button type="submit" id="wiki" name="wiki">Search</button>
+            <button type="button" onclick="clearResponse()">Clear Search</button>
+        </form>
+    </div>
+
+    <div class="response_wrap">
+        <textarea id="response">{{ response }}</textarea>
+    </div>
+
+    <div class="toolbar_container">
+        <ul>
+            <li onclick="show_calculator()" class="calculater_icon" id="calculater_icon"></li>
+            <li onclick="show_todo()" id="todo"></li>
+            <li onclick=show_timer() id="timer"></li>
+        </ul>
+    </div>
+
+    <div class="dashboard_middle">
+        <div class="note_box">
+            <form class="note_form" method="post" action="/save_note">
+                <h1>Note</h1>
+                <input class="subject" placeholder="Subject" name="subject">
+                <input class="subject" id="title" placeholder="Title" autocomplete="off" name="title">
+                <textarea class="note" name="note" id="note"></textarea>
+                <button type="submit" name="note_submit">Save Note</button>
+            </form>
+        </div>
+
+        <div class="dashboard_middle_right">
+
+
+            <div class="all_notes">
+            <div>
+        </div>
+
+        </div>
+        <div id="calculator">
+            <button class="calc_button" onclick="hide_calculator()">X</button>
+            <input id="display" autocomplete="off">
+
+            <div id="keys">
+                <button class="calc_button" onclick="appendToDisplay('(')">(</button>
+                <button class="calc_button" onclick="appendToDisplay(')')">)</button>
+                <button class="calc_button" onclick="appendToDisplay('')"></button>
+                <button class="calc_button" onclick="clearDisplay()" id="clear">C</button>
+
+                <button class="calc_button" onclick="appendToDisplay('7')">7</button>
+                <button class="calc_button" onclick="appendToDisplay('8')">8</button>
+                <button class="calc_button" onclick="appendToDisplay('9')">9</button>
+                <button onclick="appendToDisplay('+')" class="calc_button">+</button>
+
+                <button class="calc_button" onclick="appendToDisplay('4')">4</button>
+                <button class="calc_button" onclick="appendToDisplay('5')">5</button>
+                <button class="calc_button" onclick="appendToDisplay('6')">6</button>
+                <button onclick="appendToDisplay('-')" class="calc_button">-</button>
+
+                <button class="calc_button" onclick="appendToDisplay('1')">1</button>
+                <button class="calc_button" onclick="appendToDisplay('2')">2</button>
+                <button class="calc_button" onclick="appendToDisplay('3')">3</button>
+                <button onclick="appendToDisplay('*')" class="calc_button">*</button>
+
+                <button class="calc_button" onclick="appendToDisplay('.')">.</button>
+                <button class="calc_button" onclick="appendToDisplay('0')">0</button>
+                <button class="calc_button" onclick="calculate()">=</button>
+                <button onclick="appendToDisplay('/')" class="calc_button">/</button>
+            </div>
+            </div>
+
+            <div class="todo">
+                <button type="button" class="calc_button" onclick="hide_todo()">X</button><br />
+                <div class="item">
+                    <input type="checkbox" class="item_completed">
+                    <input type="text" class="item_description" id="item_description" placeholder="To-Do Item ...">
+                    <button type="button" onclick="add_item()">Add</button>
+                </div>
+                <ul id="todo_list"></ul> <!-- Container for the to-do list items -->
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+    <div class="bottom">"The greatest lesson I have learned in life is that I still have a lot to learn".</div>
+
+{% endblock %}

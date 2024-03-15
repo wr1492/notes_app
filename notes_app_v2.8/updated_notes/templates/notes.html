@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Notes{% endblock %}
+
+{% block content %}
+    <h1 align="center">Notes</h1>
+
+    {% for note in notes %}
+    <form method="post" action="/edit">
+        <div class="all_notes_box">
+            <div class="inner_notes">
+                <div class="all_note">
+                    <h2 class="title">{{ note.title }}</h2>
+                </div>
+
+                <div class="all_note">
+                    <textarea class="all_note">{{ note.data }}</textarea>
+                </div>
+
+                <input type="hidden" name="note_id" value="{{ note.id }}">
+                <button type="submit">Edit Note</button>
+            </div>
+        </div>
+    </form>
+    {% endfor %}
+{% endblock %}

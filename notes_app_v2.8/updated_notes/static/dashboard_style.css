@@ -1,0 +1,108 @@
+.dashboard_row1{
+    text-align: center;
+    padding: 15px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+
+.response_wrap{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dashboard_middle{
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+}
+
+.toolbar_container{
+    height: 45px;
+    display: flex;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.toolbar_container ul{
+    width: 100%;
+    list-style: none;
+    display:flex;
+    justify-content: flex-end;
+    align-item: center;
+}
+
+.toolbar_container li{
+    height: 55px;
+}
+
+#todo{
+    width: 55px;
+    height: 55px;
+    background-image: url('images/todo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#timer{
+    width: 55px;
+    height: 55px;
+    background-image: url('images/timer.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#calculater_icon{
+    width: 55px;
+    height: 55px;
+    background-image: url('images/calculater_icon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.note_form{
+    padding: 0px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    display: grid;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.note_box{
+    padding: 0px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    display: grid;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.subject{
+    height: 20px;
+    width: 55%;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: .8em;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.note{
+    padding: 15px;
+    height: 275px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
