@@ -1,6 +1,6 @@
 This is the first Flask app. I used Pycharm to edit my code.
 
-I made a Flask web app for taking notes. I wanted to have some research tools. I added a wikipidia search. 
+I made a Flask web app for taking notes. I wanted to have some research tools. I added a Wikipedia search. 
 I am working on adding a tools sidebar that will have a calculator, to-do-list and a few others.
 The file structure is simple. The app.py only checks if the name and executes app.run():
 
@@ -26,12 +26,12 @@ Inside the updated_notes directory is the static and templates directories; alon
 The auth.py file houses all the routes for the web app. I set up a decoded function for the routes
 requiring login.
 
-def login_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if session.get("user_id") is None:
-            return redirect("/login")
-        return f(*args, **kwargs)
+    def login_required(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if session.get("user_id") is None:
+                return redirect("/login")
+            return f(*args, **kwargs)
 
     return decorated_function
 
