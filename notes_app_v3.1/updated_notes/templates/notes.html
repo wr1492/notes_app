@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}Notes{% endblock %}
+
+{% block content %}
+    <div class="dashboard_row1">
+        <h1>All Notes</h1><br />
+    </div>
+
+    {% for note in notes %}
+
+        <form class="note_form" method="post" action="/edit">
+
+            <h2 class="title">{{ note.title }}</h2>
+
+            <textarea class="note">{{ note.data }}</textarea>
+
+            <input type="hidden" name="note_id" value="{{ note.id }}">
+            <button type="submit">Edit Note</button>
+        </form>
+
+        <form method="post" action="/delete">
+            <input type="hidden" name="id" id=id value="{{ note.id }}">
+            <button type="submit">Delete Note</button>
+        </form>
+    {% endfor %}
+    <div class="bottom">"The greatest lesson I have learned in life is that I still have a lot to learn".</div>
+
+{% endblock %}
