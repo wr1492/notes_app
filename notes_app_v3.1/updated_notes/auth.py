@@ -102,7 +102,7 @@ def dashboard():
         if len(note) < 1:
             return apology('Note is to short', 400)
         else:
-            new_note = Note(title=title, data=note, user_id=user_id, subject=subject)
+            new_note = Note(title=title, data=note, user_id=user_id, subject=subject.lower())
             db.session.add(new_note)
             db.session.commit()
     return render_template("dashboard.html")
@@ -168,7 +168,7 @@ def delete():
 @login_required
 def search_notes():
     if request.method == "POST":
-        user_id = session.get("user_id")  # Get the user ID from the session
+        user_id = session.get("user_id").lower()  # Get the user ID from the session
         subject = request.form.get('subject')  # Get the category from the form
         notes = Note.query.filter_by(user_id=user_id, subject=subject).all()
         """Show all notes"""
