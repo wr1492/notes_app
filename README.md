@@ -4,7 +4,7 @@ I made a Flask web app for taking notes. I wanted to have some research tools. I
 I am working on adding a tools sidebar that will have a calculator, to-do-list and a few others.
 The file structure is simple. The app.py only checks if the name and executes app.run():
 
-from website import create_app
+from updated_notes import create_app
 
 app = create_app()
 
