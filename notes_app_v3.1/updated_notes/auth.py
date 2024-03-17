@@ -169,7 +169,7 @@ def delete():
 def search_notes():
     if request.method == "POST":
         user_id = session.get("user_id").lower()  # Get the user ID from the session
-        subject = request.form.get('subject')  # Get the category from the form
+        subject = request.form.get('subject').lower()  # Get the category from the form
         notes = Note.query.filter_by(user_id=user_id, subject=subject).all()
         """Show all notes"""
         return render_template('search_notes.html', notes=notes)
