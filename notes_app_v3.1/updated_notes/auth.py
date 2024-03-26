@@ -93,22 +93,6 @@ def logout():
 @auth.route("/dashboard", methods=["GET", "POST"])
 @login_required
 def dashboard():
-    if not session.get("user_id"):
-        return redirect("/")
-
-    user_id = session.get("user_id")
-    if request.method == "POST":
-        search = request.form.get('wiki_search')
-        if len(search) < 1:
-            return apology("Please enter search term", 400)
-        else:
-            return wiki_search(search)
-    return render_template("dashboard.html")
-
-
-@auth.route("/save_note", methods=["GET", "POST"])
-@login_required
-def save_note():
     user_id = session.get("user_id")
     if request.method == "POST":
         subject = request.form.get('subject')
@@ -118,10 +102,23 @@ def save_note():
         if len(note) < 1:
             return apology('Note is to short', 400)
         else:
-            new_note = Note(title=title, data=note, user_id=user_id, subject=subject)
+            new_note = Note(title=title, data=note, user_id=user_id, subject=subject.lower())
             db.session.add(new_note)
             db.session.commit()
     return render_template("dashboard.html")
+
+
+@auth.route("/wiki_search", methods=["GET", "POST"])
+@login_required
+def wiki():
+    user_id = session.get("user_id")
+    if request.method == "POST":
+        search = request.form.get('wiki_search')
+        if len(search) < 1:
+            return apology("Please enter search term", 400)
+        else:
+            return wiki_search(search)
+    return render_template("wiki_search.html")
 
 
 @auth.route("/notes", methods=["GET", "POST"])
@@ -165,3 +162,15 @@ def delete():
         db.session.delete(note)
         db.session.commit()
         return redirect("/notes")
+
+
+@auth.route("/search_notes", methods=["GET", "POST"])
+@login_required
+def search_notes():
+    if request.method == "POST":
+        user_id = session.get("user_id").lower()  # Get the user ID from the session
+        subject = request.form.get('subject').lower()  # Get the category from the form
+        notes = Note.query.filter_by(user_id=user_id, subject=subject).all()
+        """Show all notes"""
+        return render_template('search_notes.html', notes=notes)
+    return render_template('search_notes.html')

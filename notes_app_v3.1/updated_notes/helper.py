@@ -36,4 +36,5 @@ def wiki_search(term):
     except wk.exceptions.PageError:
         response = f"No Wikipedia page found for '{term}'"
 
-    return render_template('dashboard.html', response=response)
+    return render_template('wiki_search.html', response=response)
+

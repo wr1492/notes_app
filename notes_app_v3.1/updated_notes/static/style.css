@@ -197,96 +197,53 @@ input{
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-#calculator{
-    display: none;
-	background: linear-gradient(120deg, #007bff, #d0314c);
-	padding: 10px;
-	margin: 25px;
-	border: 2px solid white;
-	border-radius: 10px;
-	max-width: 250px;
-	height: 420px;
-	overflow: hidden;
-}
-
-.display{
-	padding: 20px;
-	color: white;
-	font-size: 18px;
-	width: 100%;
-	height: 10%;
-	text-align: left;
-	border: none;
-	background-color: transparent;
-}
-
-#keys{
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	padding: 5px;
-}
-
-.calc_button{
-    background-color: transparent;
-	color: white;
-	width: 40px;
-	height: 40px;
-	border: 2px solid white;
-	border-radius: 25px;
-}
-
-.todo{
+.dashboard_row1{
+    text-align: center;
+    padding: 15px;
     display: grid;
+    justify-content: center;
     align-items: center;
-    margin: 15px;
-    padding: 10px;
-    display: none;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
-.item_description{
-    padding: 5px;
-}
-
-.item_completed:checked + .item_description{
-    background: #dddddd;
-    text-decoration: line-through;
-}
-
-.all_notes_box{
+.note_form{
     padding: 0px;
     text-align: center;
     color: white;
     padding: 10px;
     display: grid;
-    justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-.all_note{
-    min-width: 400px;
-    border-radius: 10px;
-    padding: 15px;
+.subject{
+    height: 20px;
+    width: 55%;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: .8em;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-.inner_notes{
-    width: 100%;
+.note{
+    padding: 15px;
+    height: 200px;
     border-radius: 10px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.3)
+    font-size: 1.2em;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 .edit_note{
-    height: 300px;
-    padding: 10px;
+    height: 50vh;
     border-radius: 10px;
-    min-width: 400px;
+    padding: 15px;
+    width: 80%;
 }
 
-#response{
-    font-size: 1.1em;
-    font: arial;
-    width: 100%;
+select{
+    border-radius: 5px;
     padding: 10px;
+    height: 38px;
 }
